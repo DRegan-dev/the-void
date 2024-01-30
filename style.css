@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&family=Oswald&family=Phudu:wght@500&family=Tilt+Neon&display=swap');
+/* Sets the font family for all Elements */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tilt Neon', 'Electrolize', sans-serif;
+}
