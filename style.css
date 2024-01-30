@@ -20,6 +20,7 @@ body {
     padding: 20px 10%;
     background-color: cornflowerblue;
     justify-content: space-between;
+    display: flex;
     align-items: center;
     z-index: 100;
 }
@@ -43,4 +44,11 @@ body {
 .navbar a:hover,
 .navbar a:active {
     color: #c40094;
+}
+
+.main {
+    min-height: 100vh;
+    background: url("cityscape.jpg"), no-repeat;
+    background-size: cover;
+    background-position: center;
 }
