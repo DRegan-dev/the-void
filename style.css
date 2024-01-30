@@ -30,3 +30,17 @@ body {
     text-decoration: none;
     font-weight: 700;
 }
+
+.navbar {
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+    transition: .3s;
+}
+
+.navbar a:hover,
+.navbar a:active {
+    color: #c40094;
+}
