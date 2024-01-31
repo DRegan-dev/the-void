@@ -18,7 +18,7 @@ body {
     left: 0;
     width: 100%;
     padding: 20px 10%;
-    background-color: cornflowerblue;
+    background-color: transparent;
     justify-content: space-between;
     display: flex;
     align-items: center;
@@ -26,18 +26,18 @@ body {
 }
 
 .logo {
-    font-size: 12px;
+    font-size: 40px;
     color: #fff;
     text-decoration: none;
     font-weight: 700;
 }
 
-.navbar {
+.navbar a {
     font-size: 18px;
     color: #fff;
     text-decoration: none;
     font-weight: 500;
-    margin-left: 35px;
+    margin-left: 55px;
     transition: .3s;
 }
 
