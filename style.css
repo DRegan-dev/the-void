@@ -84,3 +84,22 @@ body {
         text-shadow: none;
     }
 }
+
+.home {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-content {
+    max-width: 600px;
+}
+
+.home-content h1 {
+    font-size: 78px;
+    font-weight: 700;
+    text-shadow: 0, 0, 0, .3;
+
+}
