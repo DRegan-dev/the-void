@@ -131,7 +131,7 @@ body {
      transition: 5s;
 }
 
-.home-content .start-btn {
+.home-content .start-btn:hover {
     background: #09001d;
     box-shadow: none;
 
