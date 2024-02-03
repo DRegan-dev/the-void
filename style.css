@@ -66,6 +66,12 @@ body {
     background: url("/assets/images/cityscape.jpg") no-repeat;
     background-size: cover;
     background-position: center;
+    transition: .3s ease;
+}
+
+.main.active {
+    filter: blur(15px);
+    pointer-events: none;
 }
 
 @keyframes flicker {
