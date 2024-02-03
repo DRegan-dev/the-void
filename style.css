@@ -128,7 +128,7 @@ body {
     letter-spacing: 1px;
     font-weight: 600;
      cursor: pointer;
-     transition: 5s;
+     transition: 3s;
 }
 
 .home-content .start-btn:hover {
@@ -214,10 +214,3 @@ body {
     border-color: #950170
 }
 
-.popup-info .btn-group .info-btn:nth-child(3) {
-    
-}
-
-.popup-info .btn-group .info-btn:nth-child(4) {
-    
-}
