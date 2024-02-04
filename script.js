@@ -32,11 +32,11 @@ let questionCount = 0;
 const nextBtn = document.querySelector('.next-btn');
 
 nextBtn.onclick = () => {
-    quesitonCount++;
+    questionCount++;
     showQuestions(questionCount);
 }
 
 function showQuestions(index) {
     const questionText = document.querySelector('.question-text');
-    questionText.textContent = `${questions[index].numb}. ${question[index].question}`;
+    questionText.textContent = `${questions[index].numb}. ${questions[index].question}`;
 }
