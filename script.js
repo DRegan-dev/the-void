@@ -23,4 +23,20 @@ continueBtn.onclick = () => {
     main.classList.remove('active');
     quizBox.classList.add('active');
 
+    showQuestions(0);
+
+}
+
+let questionCount = 0;
+
+const nextBtn = document.querySelector('.next-btn');
+
+nextBtn.onclick = () => {
+    quesitonCount++;
+    showQuestions(questionCount);
+}
+
+function showQuestions(index) {
+    const questionText = document.querySelector('.question-text');
+    questionText.textContent = `${questions[index].numb}. ${question[index].question}`;
 }
