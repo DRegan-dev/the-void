@@ -268,10 +268,11 @@ body {
 
 .quiz-box .quiz-header {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     padding: 20px 0;
     border-bottom: 2px solid #c40094;
+    margin-bottom: 30px;
 }
 
 .quiz-header span {
