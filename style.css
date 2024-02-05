@@ -313,9 +313,21 @@ body {
     cursor: pointer;
 }
 
-.option-list .option:hover {
+option-list .option:hover {
     background: rgba(255, 255, 255, .1);
     border-color: rgba(255, 255, 255, .1);
+}
+
+.option-list .option.correct {
+    background: #09001d;
+    color: #00a63d;
+    border-color: #00a63d;
+}
+
+.option-list .option.incorrect {
+    background: #09001d;
+    color: #a60845;
+    border-color: #a60845;
 }
 
 .quiz-box .quiz-footer {
