@@ -71,15 +71,21 @@ function optionSelected(answer) {
     let allOptions = optionList.children.length;
     console.log(correctAnswer);
     if (userAnswer == correctAnswer) {
-        answer.classList.add('correct')
+        answer.classList.add('correct');
     }
     else {
-        answer.classList.add('incorrect')
+        answer.classList.add('incorrect');
+
+        //if answer is incorrect, auto select correct answer //
+        for (let i = 0; i < allOptions; i++) {
+            if (optionList.children[i].textContent == correctAnswer)
+                optionList.children[i].setAttribute('class', 'option correct');
+        }
     }
 
     //if user has selected. All options are disabled //
     for (let i = 0; i < allOptions; i++) {
-        optionList.children[i].classList.add{'disabled'}
+        optionList.children[i].classList.add('disabled')
     }
 }
 
