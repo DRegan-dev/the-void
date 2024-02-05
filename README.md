@@ -359,7 +359,7 @@ This will be fixed in future update.
 Hover styles on Nav bar on landing page do not respond to hover and active css styling.
 This will be fixed in future update. 
 
-##Credit 
+## Credit 
 
 This project was heavily influenced by a project by Codehal on YouTube and can be found here (https://www.youtube.com/watch?v=Vp8x8-reqZA&t=304s)
 
