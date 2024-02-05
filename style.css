@@ -413,3 +413,14 @@ body {
     align-items: center;
 }
 
+.circular-progress .progress-value {
+    font-size: 45px;
+    font-weight: 600;
+}
+
+.percentage-container .score-text {
+    font-size: 26px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
