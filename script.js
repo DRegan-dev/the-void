@@ -25,11 +25,13 @@ continueBtn.onclick = () => {
 
     showQuestions(0);
     questionCounter(1);
+    headerScore();
 
 }
 
 let questionCount = 0;
 let questionNumb = 1;
+let userScore = 0;
 
 const nextBtn = document.querySelector('.next-btn');
 
@@ -72,6 +74,8 @@ function optionSelected(answer) {
     console.log(correctAnswer);
     if (userAnswer == correctAnswer) {
         answer.classList.add('correct');
+        userScore += 1;
+        headerScore();
     }
     else {
         answer.classList.add('incorrect');
@@ -92,4 +96,9 @@ function optionSelected(answer) {
 function questionCounter(index) {
     const questionTotal = document.querySelector('.question-total');
     questionTotal.textContent = `${index} of ${questions.length} Questions`;
+}
+
+function headerScore () {
+    const headerScoreText = document.querySelector('.header-score');
+    headerScoreText.textContent =`${userScore} / ${questions.length}`;
 }
