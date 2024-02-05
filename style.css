@@ -394,3 +394,11 @@ body {
     font-size: 52px;
 }
 
+.result-box .percentage-container {
+    width: 300px;
+    background: seagreen;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
