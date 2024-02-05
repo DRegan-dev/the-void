@@ -15,6 +15,12 @@ Welcome to Triviopolis, an interactive quiz application where players must answe
 - [Script Overview](#script-overview)
 - [Event Handlers](#event-handlers)
 - [Functions](#functions)
+- [Questions.js](#questions.js)
+- [Testing](#testing)
+- [Known Issues](#known-issues)
+- [credit](#credit)
+- [Conclusion](#conclusion)
+- [Contributions](#contributions)
 
 ## Getting Started
 
@@ -377,8 +383,7 @@ Documentation: Update the README as needed, providing comprehensive documentatio
 
 Feel free to explore additional features, design improvements, or integrations to enhance the Triviopolis Quiz App. Happy coding!
 
-
-## Contributing
+## Contributions
 
 Contributions are welcome! If you find a bug or have an enhancement in mind, feel free to open an issue or submit a pull request.
 
