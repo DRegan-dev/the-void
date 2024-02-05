@@ -12,6 +12,9 @@ Welcome to Triviopolis, an interactive quiz application where players must answe
 - [Quiz Guide](#quiz-guide)
 - [Contributing](#contributing)
 - [License](#license)
+- [Script Overview](#script-overview)
+- [Event Handlers](#event-handlers)
+- [Functions](#functions)
 
 ## Getting Started
 
@@ -68,6 +71,255 @@ To get started with Triviopolis, follow these steps:
 4. **Enjoy the Game:**
    - Have fun, and remember not to let everyone die!
 ![triviopolis home section](assets/images/triviopolis-pop-up-info-box.png)
+
+# Triviopolis Quiz App - JavaScript Script
+
+The `script.js` file contains the JavaScript logic for the Triviopolis Quiz App. This script manages the interactive features, user interactions, and the progression of the quiz. Below is a brief README to help you understand the structure and functionality of the script.
+
+## Script Overview
+
+The JavaScript script (`script.js`) is responsible for handling the dynamic behavior of the Triviopolis Quiz App. It manipulates the DOM to show and hide various sections of the app, updates scores, displays questions, and handles user interactions.
+
+## Event Handlers
+
+### 1. Start Button Event
+
+The script handles the click event on the start button, displaying the initial popup and activating the main section of the quiz.
+
+```javascript
+startBtn.onclick = () => {
+    popupInfo.classList.add('active');
+    main.classList.add('active');
+}
+```
+
+### 2. Exit Event Button
+The script handles the click event on the exit button, removing the popup and deactivating the main section.
+```
+exitBtn.onclick = () => {
+    popupInfo.classList.remove('active');
+    main.classList.remove('active');
+}
+```
+### Continue Button Event
+When the user clicks the continue button, the script activates the quiz section, hides the popup, and sets up the initial quiz state.
+```
+continueBtn.onclick = () => {
+    quizSection.classList.add('active');
+    popupInfo.classList.remove('active');
+    main.classList.remove('active');
+    quizBox.classList.add('active');
+
+    showQuestions(0);
+    questionCounter(1);
+    headerScore();
+
+}
+```
+### Try Again Button Event
+The try again button resets the quiz to its initial state, allowing the user to retake the quiz.
+```
+tryAgainBtn.onclick = () => {
+    quizBox.classList.add('active');
+    nextBtn.classList.remove('active');
+    resultBox.classList.remove('active');
+
+    questionCount = 0;
+    questionNumb = 1;
+    userScore = 0;
+
+    showQuestions(questionCount);
+    questionCounter(questionNumb);
+
+    headerScore();
+
+}
+```
+### 5. Go Home Button Event
+Clicking the go home button takes the user back to the home section, resetting the quiz state.
+```
+goHomeBtn.onclick = () => {
+    quizSection.classList.remove('active');
+    nextBtn.classList.remove('active');
+    resultBox.classList.remove('active');
+
+    questionCount = 0;
+    questionNumb = 1;
+    userScore = 0;
+
+    showQuestions(questionCount);
+    questionCounter(questionNumb);
+
+    headerScore();
+
+}
+```
+### 6. Next Button Event
+The next button event handles the progression of the quiz, showing the next question or displaying the result if the last question is reached.
+```
+nextBtn.onclick = () => {
+    if (questionCount < questions.length - 1) {
+    questionCount++;
+    showQuestions(questionCount);
+
+    questionNumb++;
+    questionCounter(questionNumb);
+
+    nextBtn.classList.remove('active');
+    }
+    else {
+        showResultBox();
+    }
+}
+```
+
+## Functions
+
+### 1. showQuestions(index)
+This function updates the displayed question and options based on the provided index.
+```
+function showQuestions(index) {
+    const questionText = document.querySelector('.question-text');
+    questionText.textContent = `${questions[index].numb}. ${questions[index].question}`;
+
+    let optionTag = `<div class="option"><span>${questions[index].options[0]}</span></div>
+        <div class="option"><span>${questions[index].options[1]}</span></div>
+        <div class="option"><span>${questions[index].options[2]}</span></div>
+        <div class="option"><span>${questions[index].options[3]}</span></div>`;
+
+    optionList.innerHTML = optionTag;
+
+    const option = document.querySelectorAll('.option');
+    for (let i = 0; i < option.length; i++) {
+        option[i].setAttribute('onclick', 'optionSelected(this)');
+    }
+}
+```
+### 2. optionSelected(answer)
+Handles the user's selection of an option, checks if it's correct, and updates the UI accordingly.
+```
+function optionSelected(answer) {
+    let userAnswer = answer.textContent;
+    let correctAnswer = questions[questionCount].answer;
+    let allOptions = optionList.children.length;
+    console.log(correctAnswer);
+    if (userAnswer == correctAnswer) {
+        answer.classList.add('correct');
+        userScore += 1;
+        headerScore();
+    }
+    else {
+        answer.classList.add('incorrect');
+
+        //if answer is incorrect, auto select correct answer //
+        for (let i = 0; i < allOptions; i++) {
+            if (optionList.children[i].textContent == correctAnswer)
+                optionList.children[i].setAttribute('class', 'option correct');
+        }
+    }
+
+    //if user has selected. All options are disabled //
+    for (let i = 0; i < allOptions; i++) {
+        optionList.children[i].classList.add('disabled');
+    }
+
+    nextBtn.classList.add('active');
+}
+```
+### 3. questionCounter(index)
+Updates the UI to show the current question number out of the total number of questions.
+```
+function questionCounter(index) {
+    const questionTotal = document.querySelector('.question-total');
+    questionTotal.textContent = `${index} of ${questions.length} Questions`;
+}
+```
+### 4. headerScore()
+Updates the UI to display the user's current score.
+```
+function headerScore () {
+    const headerScoreText = document.querySelector('.header-score');
+    headerScoreText.textContent =`${userScore} / ${questions.length}`;
+}
+```
+### 5. showResultBox()
+Handles the transition to the result box, displaying the final score and a circular progress animation.
+```
+function showResultBox() {
+    quizBox.classList.remove('active');
+    resultBox.classList.add('active');
+
+    const scoreText = document.querySelector('.score-text');
+    scoreText.textContent = `Your Score ${userScore} out of ${questions.length}`;
+
+    const circularProgress = document.querySelector('.circular-progress');
+    const progressValue = document.querySelector('.progress-value');
+    let progressStartValue = -1;
+    let progressEndValue = (userScore / questions.length) * 100;
+    let speed = 20;
+
+    let progress = setInterval(() => {
+        progressStartValue++;
+    
+        progressValue.textContent = `${progressStartValue}%`;
+        circularProgress.style.background = `conic-gradient(#c40094 ${progressStartValue * 3.6}deg, rgba(255, 255, 255, .1) 0deg)`;
+        
+        if (progressStartValue >= progressEndValue) {
+            clearInterval(progress);
+        }
+    }, speed);
+}
+```
+## Questions.js
+
+This section contains the array of questions used in the Triviopolis Quiz App. The `questions` array is an essential part of the application, providing the content for the quiz.
+
+## Questions Array
+
+The `questions` array is an array of objects, where each object represents a quiz question. Each question object has the following properties:
+
+- `numb`: A numerical identifier for the question.
+- `question`: The text of the question.
+- `answer`: The correct answer to the question.
+- `options`: An array of multiple-choice options for the question.
+
+Here is an example of a question object:
+
+```javascript
+{
+  numb: 1,
+  question: "What 1949 science fiction book by author George Orwell describes a dystopian world in the future?",
+  answer: "C. 1984",
+  options: [
+    "A. Bladerunner", 
+    "B. The Stranger", 
+    "C. 1984", 
+    "D. The Road"
+  ]
+}
+```
+
+# Testing
+
+Buttons
+# Conclusion 
+
+The provided README offers an overview of the essential components in the Triviopolis Quiz App, focusing on the JavaScript script and the array of questions. By understanding the structure of the JavaScript code and the format of the questions array, developers can seamlessly integrate and customize the quiz application.
+
+As you embark on using or modifying this codebase, consider the following:
+
+Customization: Tailor the questions array to suit the specific theme or subject of your quiz. You can expand the array, modify questions, or add new categories to enhance user engagement.
+
+User Experience: Keep the user experience in mind while making changes. Ensure that the flow of questions, visual elements, and interaction patterns align with the desired user journey.
+
+Documentation: Update the README as needed, providing comprehensive documentation for future developers or collaborators who might work on the project.
+
+Feel free to explore additional features, design improvements, or integrations to enhance the Triviopolis Quiz App. Happy coding!
+
+
+
+
+
 
 ## Contributing
 
