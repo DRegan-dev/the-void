@@ -301,7 +301,68 @@ Here is an example of a question object:
 
 # Testing
 
-Buttons
+## Event Handlers
+
+### Start Button
+Start button triggers the pop up info box to display correctly. CSS styling responds as it should. Tests Successful.
+
+### Continue  Button
+Continue button initializes the quiz section to display and quiz to start. CSS styling responds as expected. Test successful.
+
+### Answer options
+Answer options respond as expected when clicked. Green highlight around correct answers and red highlight around incorrect answers. CSS styling responds as expected. Test Successful.
+
+### Next Button
+
+Next button changes to the next sequential question and answer options in the questions array. CSS styling responds as expected. Test successful. 
+
+### Exit Button
+
+Exit button exits the quiz and returns the user to the landing page once more. CSS styling and JS respond as expected. Test Successful. 
+
+## Functions 
+
+### showQuestions(index):
+
+Responds as expected.  
+Test successful.
+
+### optionSelected(answer):
+
+Responds as expected
+Test successful. 
+
+### questionCounter(index):
+
+Responds as expected.
+Test successful.
+
+### headerScore():
+
+Responds as expected.
+Test Successful.
+
+### showResultBox()
+
+Responds as expected. 
+Test Successful.
+
+## Known Issues
+
+### Background image on Landing Page:
+
+Background image does not display on deployed website link however works just fine on browser server when triggered from the terminal. 
+This will be fixed in future update.
+
+### Hover styles on Nav:
+
+Hover styles on Nav bar on landing page do not respond to hover and active css styling.
+This will be fixed in future update. 
+
+##Credit 
+
+This project was heavily influenced by a project by Codehal on YouTube and can be found here (https://www.youtube.com/watch?v=Vp8x8-reqZA&t=304s)
+
 # Conclusion 
 
 The provided README offers an overview of the essential components in the Triviopolis Quiz App, focusing on the JavaScript script and the array of questions. By understanding the structure of the JavaScript code and the format of the questions array, developers can seamlessly integrate and customize the quiz application.
@@ -317,17 +378,9 @@ Documentation: Update the README as needed, providing comprehensive documentatio
 Feel free to explore additional features, design improvements, or integrations to enhance the Triviopolis Quiz App. Happy coding!
 
 
-
-
-
-
 ## Contributing
 
 Contributions are welcome! If you find a bug or have an enhancement in mind, feel free to open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
 Thank you for using Triviopolis! Enjoy the quiz and help save the world from The Void!
 
