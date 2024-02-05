@@ -32,8 +32,13 @@ let questionCount = 0;
 const nextBtn = document.querySelector('.next-btn');
 
 nextBtn.onclick = () => {
+    if (questionCount < questions.length - 1) {
     questionCount++;
     showQuestions(questionCount);
+    }
+    else {
+        console.log('Question Completed');
+    }
 }
 
 const optionList = document.querySelector(".option-list")
